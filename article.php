@@ -10,13 +10,15 @@
     <tr>
         <th>Title</th>
         <th>Body</th>
-        <th>Published?</th>
+        <!-- <th>Published?</th> -->
     </tr>
+    <?php foreach($articles as $articles) { ?>
     <tr>
-        <td><?= $artical->title ?></td>
-        <td><?= $artical->body ?></td>
-        <td><?= $artical->isPublished() ?></td>
+        <td><?= $articles->title ?></td>
+        <td><?= $articles->body ?></td>
+        <!-- <td><?= $articles->isPublished() ?></td> -->
     </tr>
+    <?php } ?>
     </table>
 </body>
 </html>
