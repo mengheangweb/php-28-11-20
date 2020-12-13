@@ -2,6 +2,18 @@
 
 $query = require "bootstrap.php";
 
-$articles = $query->selectAll('articles');
+$router = new Router();
 
-require "article.php";
+$uri = Request::url();
+
+require "routes.php";
+
+$file = $router->direct($uri);
+
+require $file;
+
+// $router->load()
+// $articles = $query->selectAll('articles');
+
+// require "article.php";
+

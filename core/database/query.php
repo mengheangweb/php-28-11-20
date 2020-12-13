@@ -2,8 +2,8 @@
 class Query {
     protected $pdo;
 
-    public function __construct($pdo){
-        $this->pdo = $pdo;
+    public function __construct($con){
+        $this->pdo = $con;
     }
 
     public function selectAll($table){
