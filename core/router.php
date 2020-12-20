@@ -1,4 +1,5 @@
 <?php
+namespace App\core;
 
 class Router {
     protected $routes;
@@ -13,6 +14,17 @@ class Router {
             die('404, No url exist!');
         }
 
-        return $this->routes[$uri];
+        $explode = explode('@',$this->routes[$uri]);
+
+        $this->callAction(
+            ...explode('@',$this->routes[$uri])
+        );
+    }
+
+    public function callAction($controller, $action)
+    {
+        $controller = "App\\Controller\\{$controller}";
+
+        return (new $controller)->$action();
     }
 }

@@ -1,16 +1,17 @@
 <?php
 
-$query = require "bootstrap.php";
+require "bootstrap.php";
+
+use App\core\Router;
+use App\core\Request;
 
 $router = new Router();
 
 $uri = Request::url();
 
-require "routes.php";
+require "app/routes.php";
 
 $file = $router->direct($uri);
-
-require $file;
 
 // $router->load()
 // $articles = $query->selectAll('articles');

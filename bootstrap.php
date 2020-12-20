@@ -1,15 +1,19 @@
 <?php
 
+use App\core\App;
+
 require "core/function.php";
-require "core/router.php";
-require "core/database/connection.php";
-require "core/database/query.php";
-require "core/request.php";
 
-$config = require "config.php";
+require "vendor/autoload.php";
 
-$con = Connection::make($config);
+App::bind('config', require "config.php");
 
-$query = new Query($con);
+$config = App::get('config');
 
-return $query;
+App::bind('con', Connection::make($config));
+
+$con = App::get('con');
+
+App::bind('query', new Query($con));
+
+// return $query;

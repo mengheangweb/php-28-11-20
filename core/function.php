@@ -11,3 +11,10 @@ function dd($value)
     die;
 }
 
+function view($name, $data = [])
+{
+    extract($data);
+
+    return require "app/view/{$name}.php";
+}
+
